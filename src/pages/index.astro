@@ -20,7 +20,8 @@ import SocialLinks from '../components/SocialLinks.astro'
 	main {
 		position: relative;
 		z-index: 1;
-		min-height: 100vh;
+		min-height: 100dvh;
+		min-height: -webkit-fill-available;
 	}
 
 	.hero {
@@ -28,7 +29,8 @@ import SocialLinks from '../components/SocialLinks.astro'
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		height: 100dvh;
+		min-height: 100dvh;
+		min-height: -webkit-fill-available;
 		padding: 2rem;
 		text-align: center;
 		box-sizing: border-box;
