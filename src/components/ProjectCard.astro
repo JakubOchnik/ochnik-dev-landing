@@ -14,7 +14,7 @@ const { title, description, technologies, imageUrl, githubUrl, projectUrl } = As
 <div class="project-card">
 	{imageUrl && (
 		<div class="project-image">
-			<img src={imageUrl} alt={title} />
+			<img src={imageUrl} alt={title} loading="lazy" />
 		</div>
 	)}
 	<div class="project-content">
