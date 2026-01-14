@@ -1,2 +1,2 @@
 # ochnik-dev-landing
-Landing page (portfolio) for ochnik.dev.
+Personal landing page (portfolio) for ochnik.dev.

@@ -1,0 +1,104 @@
+---
+const socialLinks = [
+	{
+		name: 'GitHub',
+		url: 'https://github.com/JakubOchnik'
+	},
+	{
+		name: 'LinkedIn',
+		url: 'https://linkedin.com/in/JakubOchnik'
+	},
+	{
+		name: 'Email',
+		url: 'mailto:jakub.ochnik1@gmail.com'
+	}
+];
+---
+
+<div class="social-links">
+	{socialLinks.map((link) => (
+		<a
+			href={link.url}
+			target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+			rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+			class="social-link"
+			aria-label={link.name}
+		>
+			{link.name === 'GitHub' && (
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+					<path d="M9 18c-4.51 2-5-2-7-2"></path>
+				</svg>
+			)}
+			{link.name === 'LinkedIn' && (
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+				</svg>
+			)}
+			{link.name === 'Email' && (
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+			)}
+		</a>
+	))}
+</div>
+
+<style>
+	.social-links {
+		display: flex;
+		gap: 1.5rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 2rem 0;
+        animation: fadeIn 3s ease-out 0.2s both;
+	}
+
+    
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+		color: #fff;
+		text-decoration: none;
+		transition: all 0.5s ease;
+	}
+
+	.social-link:hover {
+		background: rgba(255, 255, 255, 0.2);
+		transform: scale(1.1);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+
+	.social-link svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	@media (max-width: 768px) {
+		.social-links {
+			gap: 1rem;
+		}
+
+		.social-link {
+			width: 45px;
+			height: 45px;
+		}
+	}
+</style>
