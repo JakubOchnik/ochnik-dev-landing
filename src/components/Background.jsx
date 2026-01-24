@@ -5,11 +5,12 @@ export default function Background() {
     const containerRef = useRef(null);
 
     useEffect(() => {
+        const container = containerRef.current;
         // Cleanup on unmount
         return () => {
-            if (containerRef.current) {
+            if (container) {
                 // Force cleanup of WebGL context
-                const canvas = containerRef.current.querySelector('canvas');
+                const canvas = container.querySelector('canvas');
                 if (canvas) {
                     const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
                     if (gl) {

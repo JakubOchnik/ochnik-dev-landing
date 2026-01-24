@@ -30,6 +30,7 @@ export default function ScrollUpButton() {
       className={`${styles.scrollUpButton} ${isVisible ? styles.visible : ''}`}
       aria-label="Scroll to top"
       title="Scroll to top"
+      type="button"
     >
       <svg
         width="24"
@@ -40,7 +41,9 @@ export default function ScrollUpButton() {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        aria-hidden="true"
       >
+        <title>Scroll to top</title>
         <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     </button>
