@@ -1,0 +1,155 @@
+---
+import RootLayout from '../layouts/RootLayout.astro'
+import SocialLinks from '../components/SocialLinks.astro'
+import Header from '../components/Header.astro'
+---
+
+<RootLayout>	
+	<main>
+		<Header />
+		<div class="about-container">
+			<div class="about-content">
+				<h1>About Me</h1>
+				<p>
+					Hi! I'm Jakub Ochnik, a Gdańsk-based software engineer with a passion for creating elegant, performant solutions to complex problems.
+				</p>
+
+				<h2>Background</h2>
+				<p>
+					Throughout my career, I've mostly worked on C++ projects. I have experience with multiple operating systems (including their APIs) and environments. Lately, I've been also learning web development to build full-stack applications using modern frameworks and cloud services.
+				</p>
+
+				<h2>Skills & Expertise</h2>
+				<div class="skills-grid">
+					<div class="skill-category">
+						<h3>Languages</h3>
+						<ul>
+							<li>C++ (latest standards)</li>
+							<li>C</li>
+							<li>Python (basics)</li>
+							<li>Java (basics)</li>
+						</ul>
+					</div>
+					<div class="skill-category">
+						<h3>Tools & DevOps</h3>
+						<ul>
+							<li>Git / GitHub</li>
+							<li>CMake, Conan</li>
+							<li>Docker, Kubernetes (basics)</li>
+							<li>AWS (basics)</li>
+						</ul>
+					</div>
+					<div class="skill-category">
+						<h3>Libraries</h3>
+						<ul>
+							<li>GTest and GMock</li>
+							<li>Boost (selected modules)</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<h2>Let's Connect</h2>
+				<p>
+					I'm always interested in new projects, collaborations, and opportunities to solve interesting problems. Feel free to reach out!
+				</p>
+				<SocialLinks />
+		</div>
+	</main>
+</RootLayout>
+
+<style>
+	main {
+		position: relative;
+		z-index: 1;
+	}
+
+	.about-container {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		min-height: 100dvh;
+	}
+
+	.about-content {
+		flex: 1;
+		padding: 2rem 2rem;
+		max-width: 900px;
+		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	h1 {
+		font-family: 'Playfair Display', serif;
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 700;
+		color: #fff;
+		margin: 0 0 2rem 0;
+		text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: #fff;
+		margin: 2rem 0 1rem 0;
+	}
+
+	h3 {
+		font-family: 'Inter', sans-serif;
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.95);
+		margin: 0 0 0.8rem 0;
+	}
+
+	p {
+		font-family: 'Inter', sans-serif;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0 0 1.5rem 0;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin: 2rem 0;
+	}
+
+	.skill-category {
+		padding: 1.5rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 8px;
+		backdrop-filter: blur(10px);
+	}
+
+	.skill-category ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.skill-category li {
+		font-family: 'Inter', sans-serif;
+		font-size: 0.95rem;
+		color: rgba(255, 255, 255, 0.8);
+		padding: 0.5rem 0;
+		padding-left: 1.5rem;
+		position: relative;
+	}
+
+	.skill-category li:before {
+		content: '▸';
+		position: absolute;
+		left: 0;
+		color: rgba(255, 255, 255, 0.6);
+	}
+</style>
+
+

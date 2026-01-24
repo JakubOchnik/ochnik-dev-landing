@@ -1,25 +1,34 @@
 ---
 import RootLayout from '../layouts/RootLayout.astro'
-import Background from '../components/Background'
 import SocialLinks from '../components/SocialLinks.astro'
+import Header from '../components/Header.astro'
 ---
 
 <RootLayout>
-	<Background client:idle />
-	
 	<main>
+		<Header />
 		<section class="hero">
 			<h1 class="main-title">ochnik.dev</h1>
-			<p class="subtitle">Software Engineer & Creative Mind</p>
+			<p class="subtitle">A Software Engineer based in Gdańsk, Poland</p>
 			<SocialLinks />
 		</section>
 	</main>
 </RootLayout>
 
 <style>
+	:global(html),
+	:global(body) {
+		overflow: hidden;
+		height: 100%;
+	}
+
 	main {
 		position: relative;
 		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		height: 100dvh;
 	}
 
 	.hero {
@@ -27,8 +36,7 @@ import SocialLinks from '../components/SocialLinks.astro'
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		min-height: 100vh;
-		min-height: 100dvh;
+		flex: 1;
 		text-align: center;
 		box-sizing: border-box;
 	}
