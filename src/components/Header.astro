@@ -1,0 +1,84 @@
+---
+const navLinks = [
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+    { name: 'Projects', url: '/projects' },
+];
+
+const currentPath = new URL(Astro.request.url).pathname;
+const isActive = (url: string) => {
+    if (url === '/') {
+        return currentPath === '/';
+    }
+    return currentPath.startsWith(url);
+};
+---
+
+<header class="header">
+    <nav class="header-nav">
+        {navLinks.map((link) => (
+            <a 
+                href={link.url} 
+                class={`header-link ${isActive(link.url) ? 'active' : ''}`}
+            >
+                {link.name}
+            </a>
+        ))}
+    </nav>
+</header>
+
+<style>
+    .header {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem 1rem;
+        position: relative;
+        z-index: 10;
+        box-sizing: border-box;
+    }
+
+    .header-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .header-link {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        padding: 0.5rem 0;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .header-link:hover {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .header-link.active {
+        color: rgba(255, 255, 255, 1);
+        border-bottom-color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 1rem 1rem;
+        }
+
+        .header-nav {
+            gap: 1rem;
+        }
+
+        .header-link {
+            font-size: 0.9rem;
+        }
+    }
+</style>

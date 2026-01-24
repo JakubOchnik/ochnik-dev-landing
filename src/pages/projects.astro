@@ -1,0 +1,100 @@
+---
+import RootLayout from '../layouts/RootLayout.astro'
+import Header from '../components/Header.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+---
+
+<RootLayout>	
+	<main>
+		<Header />
+		<div class="projects-container">
+			<div class="projects-header">
+				<h1>Projects</h1>
+				<p class="intro-text">
+					Here's a selection of hobby projects I've worked on, showcasing my technical skills and focus on real-life use cases. Each project represents my commitment to clean, safe and scalable code.
+				</p>
+			</div>
+
+			<div class="projects-grid">
+				<ProjectCard
+					title="Apple Health to Garmin converter"
+					description="A full-stack application that converts your Apple Health data to Garmin-ingestable format, allowing you to transfer your health and fitness data between platforms."
+					technologies={["React", "Bootstrap", "AWS Lambda", "Python"]}
+					githubUrl="https://github.com/JakubOchnik/apple-garmin-converter"
+					projectUrl="https://apple-garmin-converter.ochnik.dev"
+					imageUrl="/img/projects/apple-garmin-converter.png"
+				/>
+
+				<ProjectCard
+					title="Cube LUT Loader"
+					description="A simple command-line C++ tool that allows you to apply a Cube format LUT to an image. It offers high-performance multi-threaded and GPU-accelerated modes, various interpolation methods, and support for 1D and 3D LUTs."
+					technologies={["C++20", "CMake", "Conan", "CUDA", "OpenCV"]}
+					githubUrl="https://github.com/JakubOchnik/Cube-LUT-Loader"
+					imageUrl="/img/projects/cube-lut-converter.jpg"
+				/>
+			</div>
+		</div>
+	</main>
+</RootLayout>
+
+<style>
+	main {
+		position: relative;
+		z-index: 1;
+	}
+
+	.projects-container {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		min-height: 100dvh;
+	}
+
+	.projects-header {
+		padding: 2rem 2rem;
+		max-width: 900px;
+		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	h1 {
+		font-family: 'Playfair Display', serif;
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 700;
+		color: #fff;
+		margin: 0 0 1.5rem 0;
+		text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.intro-text {
+		font-family: 'Inter', sans-serif;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0 0 1.5rem 0;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		padding: 0 2rem 2rem 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.intro-text {
+			font-size: 1rem;
+		}
+	}
+</style>

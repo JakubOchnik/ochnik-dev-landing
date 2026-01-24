@@ -1,9 +1,16 @@
+---
+import { ClientRouter  } from 'astro:transitions';
+import Background from '../components/Background'
+import ScrollUpButton from '../components/ScrollUpButton.jsx'
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
 		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -25,6 +32,8 @@
 		<title>Ochnik.dev</title>
 	</head>
 	<body>
+		<Background client:only="react" transition:persist />
+		<ScrollUpButton client:only="react" />
 		<slot />
 	</body>
 </html>
@@ -39,7 +48,6 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		overflow: hidden;
 		background-color: #0c182c;
 	}
 </style>
